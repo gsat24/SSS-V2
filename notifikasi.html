@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Smart System - Notifikasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Notifikasi</h1>
+          <p class="page-subtitle">Tetap update dengan informasi terbaru</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="screen">
+      <!-- Filter/Tab -->
+      <section class="notification-tabs" style="margin-bottom: 20px;">
+        <div style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none;">
+          <button class="notification-tab active" style="padding: 10px 20px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; font-size: 12px; white-space: nowrap;">Semua</button>
+          <button class="notification-tab" style="padding: 10px 20px; border-radius: 12px; border: 1px solid #E0E3FF; background: white; color: var(--muted); font-weight: 600; font-size: 12px; white-space: nowrap;">Pembayaran</button>
+          <button class="notification-tab" style="padding: 10px 20px; border-radius: 12px; border: 1px solid #E0E3FF; background: white; color: var(--muted); font-weight: 600; font-size: 12px; white-space: nowrap;">Akademik</button>
+        </div>
+      </section>
+
+      <!-- Daftar Notifikasi -->
+      <section class="notification-list-section">
+        <div class="notification-list">
+          
+          <!-- Pembayaran -->
+          <article class="notification-card unread">
+            <div class="notification-icon" style="background: var(--purple-light); color: var(--primary);">
+              <span class="material-icons-round">account_balance_wallet</span>
+            </div>
+            <div class="notification-content">
+              <div class="notification-header">
+                <div class="notification-title">Tagihan SPP Februari 2025</div>
+                <span class="notification-badge" style="background: var(--primary); color: white; padding: 2px 8px; border-radius: 6px; font-size: 9px; font-weight: 700;">Baru</span>
+              </div>
+              <div class="notification-message">Tagihan SPP sebesar Rp 500.000 akan jatuh tempo pada 10 Februari 2025</div>
+              <div class="notification-time">5 menit yang lalu</div>
+            </div>
+          </article>
+
+          <article class="notification-card">
+            <div class="notification-icon" style="background: #D1F2EF; color: var(--tertiary);">
+              <span class="material-icons-round">event</span>
+            </div>
+            <div class="notification-content">
+              <div class="notification-header">
+                <div class="notification-title">Libur Nasional</div>
+              </div>
+              <div class="notification-message">Besok, 17 Februari 2025 adalah Hari Raya Imlek. Sekolah libur.</div>
+              <div class="notification-time">1 hari yang lalu</div>
+            </div>
+          </article>
+
+          <article class="notification-card">
+            <div class="notification-icon" style="background: #FFEBD9; color: var(--alternate);">
+              <span class="material-icons-round">warning</span>
+            </div>
+            <div class="notification-content">
+              <div class="notification-header">
+                <div class="notification-title">Pelanggaran Disiplin</div>
+              </div>
+              <div class="notification-message">Terlambat masuk sekolah pada 12 Februari 2025. Poin: -5</div>
+              <div class="notification-time">4 hari yang lalu</div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab active" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+  </body>
+</html>

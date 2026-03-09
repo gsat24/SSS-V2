@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raport - School Smart System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      <div class="page-header">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="index.html" class="btn-icon" style="background: rgba(255,255,255,0.2); border: none; color: white;">
+            <span class="material-icons-round">arrow_back</span>
+          </a>
+          <div>
+            <h1 class="page-title">Raport</h1>
+            <p class="page-subtitle">Pilih kelas dan semester</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="screen">
+      <section class="card" style="padding: 16px;">
+        <div class="field">
+          <span class="label">Kelas</span>
+          <select id="kelasSelect">
+            <option value="10">Kelas 10</option>
+            <option value="11">Kelas 11</option>
+            <option value="12">Kelas 12</option>
+          </select>
+        </div>
+        <div class="field">
+          <span class="label">Semester</span>
+          <select id="semesterSelect">
+            <option value="ganjil">Ganjil</option>
+            <option value="genap">Genap</option>
+          </select>
+        </div>
+        <button class="btn primary" id="lihatRaportBtn" style="margin-top: 8px;">Lihat Raport</button>
+      </section>
+
+      <section id="raportResult" class="card" style="display: none; padding: 16px;">
+        <div id="raportInfo" style="font-size: 13px; color: var(--muted);"></div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+
+    <script>
+      document.getElementById('lihatRaportBtn').addEventListener('click', function(){
+        const kelas = document.getElementById('kelasSelect').value;
+        const semester = document.getElementById('semesterSelect').value;
+        const info = document.getElementById('raportInfo');
+        const result = document.getElementById('raportResult');
+        info.textContent = `Raport untuk Kelas ${kelas} • Semester ${semester.toUpperCase()} (dummy preview)`;
+        result.style.display = 'block';
+      });
+    </script>
+  </body>
+</html>

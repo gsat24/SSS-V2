@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tanya Guru - School Smart System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      <div class="page-header">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="index.html" class="btn-icon" style="background: rgba(255,255,255,0.2); border: none; color: white;">
+            <span class="material-icons-round">arrow_back</span>
+          </a>
+          <div>
+            <h1 class="page-title">Tanya Guru</h1>
+            <p class="page-subtitle">Diskusi langsung dengan guru</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="screen">
+      <section class="card" style="padding: 16px;">
+        <div class="field">
+          <span class="label">Topik</span>
+          <select id="topicSelect">
+            <option value="matematika">Matematika</option>
+            <option value="bahasa_indonesia">Bahasa Indonesia</option>
+            <option value="bahasa_inggris">Bahasa Inggris</option>
+            <option value="ipa">IPA</option>
+            <option value="ips">IPS</option>
+          </select>
+        </div>
+        <div class="field">
+          <span class="label">Pesan</span>
+          <input id="messageInput" type="text" placeholder="Tulis pesan untuk guru..." />
+        </div>
+        <button class="btn primary" id="sendBtn">Kirim</button>
+      </section>
+
+      <section class="card" style="padding: 16px;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Obrolan</h2>
+        </div>
+        <div id="chatArea" style="display: flex; flex-direction: column; gap: 8px;"></div>
+      </section>
+
+      <section class="card" style="padding: 16px;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Riwayat Sesi</h2>
+        </div>
+        <div id="sessionList" style="display: flex; flex-direction: column; gap: 8px;">
+          <div class="history-item card" style="display: flex; align-items: center; gap: 16px; padding: 12px;">
+            <div style="width: 40px; height: 40px; border-radius: 12px; background: #E0E3FF; color: var(--primary); display: grid; place-items: center;">
+              <span class="material-icons-round">chat</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 700;">Matematika • Integral Dasar</div>
+              <div style="font-size: 11px; color: var(--muted);">Kemarin • 14:20</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+
+    <script>
+      const chatArea = document.getElementById('chatArea');
+      const sendBtn = document.getElementById('sendBtn');
+      const messageInput = document.getElementById('messageInput');
+      const topicSelect = document.getElementById('topicSelect');
+      const sessionList = document.getElementById('sessionList');
+
+      function addMessage(text, sender){
+        const row = document.createElement('div');
+        row.style.display = 'flex';
+        row.style.justifyContent = sender === 'me' ? 'flex-end' : 'flex-start';
+        const bubble = document.createElement('div');
+        bubble.style.maxWidth = '75%';
+        bubble.style.padding = '10px 12px';
+        bubble.style.borderRadius = '12px';
+        bubble.style.boxShadow = 'var(--shadow-sm)';
+        bubble.style.background = sender === 'me' ? 'var(--purple-light)' : 'var(--surface)';
+        bubble.style.color = sender === 'me' ? 'var(--primary)' : 'var(--text)';
+        bubble.style.fontSize = '13px';
+        bubble.textContent = text;
+        row.appendChild(bubble);
+        chatArea.appendChild(row);
+      }
+
+      sendBtn.addEventListener('click', function(){
+        const text = messageInput.value.trim();
+        if(!text) return;
+        const topic = topicSelect.options[topicSelect.selectedIndex].text;
+        addMessage(text, 'me');
+        messageInput.value = '';
+        setTimeout(() => {
+          addMessage(`Guru (${topic}): Terima kasih, akan saya jelaskan.`, 'guru');
+        }, 800);
+        const item = document.createElement('div');
+        item.className = 'history-item card';
+        item.style.display = 'flex';
+        item.style.alignItems = 'center';
+        item.style.gap = '16px';
+        item.style.padding = '12px';
+        item.innerHTML = `
+          <div style="width: 40px; height: 40px; border-radius: 12px; background: #E0E3FF; color: var(--primary); display: grid; place-items: center;">
+            <span class="material-icons-round">chat</span>
+          </div>
+          <div style="flex: 1;">
+            <div style="font-weight: 700;">${topic} • ${text.slice(0, 30)}${text.length>30?'…':''}</div>
+            <div style="font-size: 11px; color: var(--muted);">Baru saja</div>
+          </div>
+        `;
+        sessionList.prepend(item);
+      });
+    </script>
+  </body>
+</html>

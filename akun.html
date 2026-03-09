@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Smart System - Akun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      <div class="greet">
+        <span class="greet-name">Profil Pengguna</span>
+        Bentara 👋
+      </div>
+    </header>
+
+    <main class="screen">
+      <section class="menu-list card" style="padding: 0; overflow: hidden;">
+        <a class="menu-item" href="#" style="display: flex; align-items: center; gap: 16px; padding: 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid #F1F4F8;">
+          <div class="menu-icon" style="width: 40px; height: 40px; border-radius: 12px; background: var(--purple-light); color: var(--primary); display: grid; place-items: center;">
+            <span class="material-icons-round">person</span>
+          </div>
+          <div class="menu-label" style="flex: 1; font-weight: 600;">Profile</div>
+          <span class="material-icons-round" style="color: var(--muted); font-size: 20px;">chevron_right</span>
+        </a>
+        <a class="menu-item" href="#" style="display: flex; align-items: center; gap: 16px; padding: 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid #F1F4F8;">
+          <div class="menu-icon" style="width: 40px; height: 40px; border-radius: 12px; background: #FFD9DC; color: var(--secondary); display: grid; place-items: center;">
+            <span class="material-icons-round">settings</span>
+          </div>
+          <div class="menu-label" style="flex: 1; font-weight: 600;">Pengaturan</div>
+          <span class="material-icons-round" style="color: var(--muted); font-size: 20px;">chevron_right</span>
+        </a>
+        <a class="menu-item" href="#" style="display: flex; align-items: center; gap: 16px; padding: 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid #F1F4F8;">
+          <div class="menu-icon" style="width: 40px; height: 40px; border-radius: 12px; background: #D1F2EF; color: var(--tertiary); display: grid; place-items: center;">
+            <span class="material-icons-round">help</span>
+          </div>
+          <div class="menu-label" style="flex: 1; font-weight: 600;">Bantuan</div>
+          <span class="material-icons-round" style="color: var(--muted); font-size: 20px;">chevron_right</span>
+        </a>
+        <a class="menu-item" href="login.html" style="display: flex; align-items: center; gap: 16px; padding: 16px; text-decoration: none; color: var(--secondary); border-top: 1px solid #F1F4F8; margin-top: 8px;">
+          <div class="menu-icon" style="width: 40px; height: 40px; border-radius: 12px; background: #FFD9DC; color: var(--secondary); display: grid; place-items: center;">
+            <span class="material-icons-round">logout</span>
+          </div>
+          <div class="menu-label" style="flex: 1; font-weight: 700;">Logout</div>
+          <span class="material-icons-round" style="font-size: 20px;">chevron_right</span>
+        </a>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab active" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>School Smart System - Keuangan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Keuangan</h1>
+          <p class="page-subtitle">Kelola pembayaran sekolah Anda</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="screen">
+      <!-- Total Tagihan -->
+      <section class="total-payment-section card">
+        <div class="total-payment-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <div class="total-payment-info">
+            <div class="total-payment-label" style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">Total Tagihan</div>
+            <div class="total-payment-amount" style="font-size: 24px; font-weight: 700;">Rp 1.800.000</div>
+            <div class="total-payment-count" style="font-size: 12px; color: var(--muted);">6 tagihan aktif</div>
+          </div>
+          <div class="total-payment-icon" style="width: 56px; height: 56px; border-radius: 16px; background: var(--purple-light); color: var(--primary); display: grid; place-items: center;">
+            <span class="material-icons-round" style="font-size: 28px;">account_balance_wallet</span>
+          </div>
+        </div>
+        <button class="btn-pay-all">Bayar Semua Tagihan</button>
+      </section>
+
+      <!-- Tagihan Terlambat -->
+      <section class="payment-section">
+        <div class="section-heading">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h2>Tagihan Terlambat</h2>
+            <span class="badge danger">2</span>
+          </div>
+        </div>
+        <div class="payment-list">
+          <article class="payment-card overdue">
+            <div class="payment-icon overdue-icon">
+              <span class="material-icons-round">warning</span>
+            </div>
+            <div class="payment-details">
+              <div class="payment-type">SPP - Januari 2025</div>
+              <div class="payment-date">Jatuh tempo: 10 Jan 2025</div>
+              <div class="payment-amount overdue-amount">Rp 500.000</div>
+            </div>
+            <button class="btn-pay" style="padding: 8px 16px; border-radius: 12px; background: var(--primary); color: white; border: none; font-weight: 700; font-size: 12px; cursor: pointer;">Bayar</button>
+          </article>
+          <article class="payment-card overdue">
+            <div class="payment-icon overdue-icon">
+              <span class="material-icons-round">warning</span>
+            </div>
+            <div class="payment-details">
+              <div class="payment-type">Seragam</div>
+              <div class="payment-date">Jatuh tempo: 5 Jan 2025</div>
+              <div class="payment-amount overdue-amount">Rp 350.000</div>
+            </div>
+            <button class="btn-pay" style="padding: 8px 16px; border-radius: 12px; background: var(--primary); color: white; border: none; font-weight: 700; font-size: 12px; cursor: pointer;">Bayar</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Tagihan Akan Datang -->
+      <section class="payment-section">
+        <div class="section-heading">
+          <h2>Tagihan Akan Datang</h2>
+        </div>
+        <div class="payment-list">
+          <article class="payment-card">
+            <div class="payment-icon" style="background: var(--purple-light); color: var(--primary);">
+              <span class="material-icons-round">receipt</span>
+            </div>
+            <div class="payment-details">
+              <div class="payment-type">SPP - Februari 2025</div>
+              <div class="payment-date">Jatuh tempo: 10 Feb 2025</div>
+              <div class="payment-amount">Rp 500.000</div>
+            </div>
+            <button class="btn-pay outline" style="padding: 8px 16px; border-radius: 12px; background: transparent; color: var(--primary); border: 1.5px solid var(--primary); font-weight: 700; font-size: 12px; cursor: pointer;">Bayar</button>
+          </article>
+          <article class="payment-card">
+            <div class="payment-icon" style="background: #FFEBD9; color: var(--alternate);">
+              <span class="material-icons-round">school</span>
+            </div>
+            <div class="payment-details">
+              <div class="payment-type">Modul Pendidikan</div>
+              <div class="payment-date">Jatuh tempo: 15 Feb 2025</div>
+              <div class="payment-amount">Rp 200.000</div>
+            </div>
+            <button class="btn-pay outline" style="padding: 8px 16px; border-radius: 12px; background: transparent; color: var(--primary); border: 1.5px solid var(--primary); font-weight: 700; font-size: 12px; cursor: pointer;">Bayar</button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Riwayat Pembayaran -->
+      <section class="payment-section">
+        <div class="section-heading">
+          <h2>Riwayat Pembayaran</h2>
+          <a href="#" class="link-more" style="color: var(--primary); font-weight: 600; font-size: 12px; text-decoration: none;">Lihat Semua</a>
+        </div>
+        <div class="payment-list">
+          <article class="payment-card">
+            <div class="payment-icon" style="background: #D1F2EF; color: var(--tertiary);">
+              <span class="material-icons-round">check_circle</span>
+            </div>
+            <div class="payment-details">
+              <div class="payment-type">SPP - Desember 2024</div>
+              <div class="payment-date">Dibayar: 8 Des 2024</div>
+              <div class="payment-amount" style="color: var(--tertiary);">Rp 500.000</div>
+            </div>
+            <div class="payment-status success" style="background: #D1F2EF; color: var(--tertiary); padding: 4px 10px; border-radius: 8px; font-size: 10px; font-weight: 700;">LUNAS</div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab active" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+  </body>
+</html>

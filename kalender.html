@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalender Pendidikan - School Smart System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      <div class="page-header">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="index.html" class="btn-icon" style="background: rgba(255,255,255,0.2); border: none; color: white;">
+            <span class="material-icons-round">arrow_back</span>
+          </a>
+          <div>
+            <h1 class="page-title">Kalender Pendidikan</h1>
+            <p class="page-subtitle">Libur nasional dan agenda sekolah</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="screen">
+      <section class="card" style="padding: 16px;">
+        <div class="field">
+          <span class="label">Bulan</span>
+          <select id="monthSelect">
+            <option value="2026-03">Maret 2026</option>
+            <option value="2026-04">April 2026</option>
+            <option value="2026-05">Mei 2026</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="card" style="padding: 16px;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Agenda</h2>
+        </div>
+        <div id="eventList" style="display: flex; flex-direction: column; gap: 8px;"></div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+
+    <script>
+      const events = {
+        '2026-03': [
+          { date: '2026-03-20', title: 'Libur Nasional: Hari Raya Nyepi', color: '#D1F2EF', text: 'var(--tertiary)' },
+          { date: '2026-03-27', title: 'Ujian Tengah Semester', color: '#E0E3FF', text: 'var(--primary)' },
+        ],
+        '2026-04': [
+          { date: '2026-04-10', title: 'Libur Nasional: Jum’at Agung', color: '#D1F2EF', text: 'var(--tertiary)' },
+          { date: '2026-04-22', title: 'Kegiatan Prakarya: Pameran Karya', color: '#FFEBD9', text: 'var(--alternate)' },
+        ],
+        '2026-05': [
+          { date: '2026-05-01', title: 'Libur Nasional: Hari Buruh', color: '#D1F2EF', text: 'var(--tertiary)' },
+          { date: '2026-05-15', title: 'Wisuda Kelas 12', color: '#E0E3FF', text: 'var(--primary)' },
+        ],
+      };
+
+      const monthSelect = document.getElementById('monthSelect');
+      const eventList = document.getElementById('eventList');
+
+      function renderEvents(){
+        const key = monthSelect.value;
+        eventList.innerHTML = '';
+        (events[key] || []).forEach(ev => {
+          const row = document.createElement('div');
+          row.className = 'history-item card';
+          row.style.display = 'flex';
+          row.style.alignItems = 'center';
+          row.style.gap = '16px';
+          row.style.padding = '12px';
+          row.innerHTML = `
+            <div style="width: 40px; height: 40px; border-radius: 12px; background: ${ev.color}; color: ${ev.text}; display: grid; place-items: center;">
+              <span class="material-icons-round">event</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 700;">${ev.title}</div>
+              <div style="font-size: 11px; color: var(--muted);">${new Date(ev.date).toLocaleDateString('id-ID',{ weekday:'long', year:'numeric', month:'long', day:'numeric' })}</div>
+            </div>
+          `;
+          eventList.appendChild(row);
+        });
+      }
+
+      monthSelect.addEventListener('change', renderEvents);
+      renderEvents();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Akademik - School Smart System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      <div class="page-header">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <a href="index.html" class="btn-icon" style="background: rgba(255,255,255,0.2); border: none; color: white;">
+            <span class="material-icons-round">arrow_back</span>
+          </a>
+          <div>
+            <h1 class="page-title">Akademik</h1>
+            <p class="page-subtitle">Informasi dan aktivitas belajar</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="screen">
+      <section class="card" style="padding: 16px;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Jadwal Mingguan</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div class="card" style="padding: 12px;">
+            <div style="font-weight: 700; margin-bottom: 6px;">Senin</div>
+            <div style="font-size: 12px; color: var(--muted);">Matematika • Bahasa Indonesia • IPA</div>
+          </div>
+          <div class="card" style="padding: 12px;">
+            <div style="font-weight: 700; margin-bottom: 6px;">Selasa</div>
+            <div style="font-size: 12px; color: var(--muted);">Bahasa Inggris • IPS • Olahraga</div>
+          </div>
+          <div class="card" style="padding: 12px;">
+            <div style="font-weight: 700; margin-bottom: 6px;">Rabu</div>
+            <div style="font-size: 12px; color: var(--muted);">Fisika • Kimia • Biologi</div>
+          </div>
+          <div class="card" style="padding: 12px;">
+            <div style="font-weight: 700; margin-bottom: 6px;">Kamis</div>
+            <div style="font-size: 12px; color: var(--muted);">Sejarah • Geografi • Prakarya</div>
+          </div>
+          <div class="card" style="padding: 12px;">
+            <div style="font-weight: 700; margin-bottom: 6px;">Jumat</div>
+            <div style="font-size: 12px; color: var(--muted);">Pendidikan Agama • Seni Budaya • Konseling</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="padding: 16px;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Silabus & Materi</h2>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div class="notification-card">
+            <div class="notification-icon" style="background: #E0E3FF; color: var(--primary);">
+              <span class="material-icons-round">menu_book</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 700;">Matematika • Aljabar Dasar</div>
+              <div style="font-size: 11px; color: var(--muted);">Silabus minggu 1–4</div>
+            </div>
+          </div>
+          <div class="notification-card">
+            <div class="notification-icon" style="background: #D1F2EF; color: var(--tertiary);">
+              <span class="material-icons-round">menu_book</span>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 700;">IPA • Sistem Pernapasan</div>
+              <div style="font-size: 11px; color: var(--muted);">Materi praktikum dan teori</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="padding: 16px;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Pengumuman Akademik</h2>
+        </div>
+        <div class="notification-card">
+          <div class="notification-icon" style="background: #FFEBD9; color: var(--alternate);">
+            <span class="material-icons-round">campaign</span>
+          </div>
+          <div style="flex: 1;">
+            <div style="font-weight: 700;">Tryout Ujian Nasional</div>
+            <div style="font-size: 11px; color: var(--muted);">Mulai minggu depan, jadwal menyusul</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="padding: 16px;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Konsultasi</h2>
+        </div>
+        <a href="tanya-guru.html" class="btn primary" style="text-align: center; display: block; text-decoration: none;">Mulai Tanya Guru</a>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+  </body>
+</html>

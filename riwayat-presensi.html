@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat Presensi - School Smart System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="app">
+    <header class="app-header compact">
+      <div class="logo-wrap">
+        <img class="logo" src="sss_logo.jpg" alt="Logo Sekolah">
+        <div class="brand">
+          <div class="brand-title">School Smart System</div>
+          <div class="brand-sub">Sekolah Cerdas Nusantara</div>
+        </div>
+      </div>
+      
+      <div class="page-header">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="presensi.html" class="btn-icon" style="background: rgba(255,255,255,0.2); border: none; color: white;">
+            <span class="material-icons-round">arrow_back</span>
+          </a>
+          <h1 class="page-title">Riwayat Presensi</h1>
+        </div>
+      </div>
+    </header>
+
+    <main class="screen">
+      <section class="filter-section card" style="padding: 12px; margin-bottom: 20px;">
+        <div class="filter-buttons" style="display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px;">
+          <button class="filter-button active" data-filter="semua" style="padding: 10px 18px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; font-size: 12px; white-space: nowrap;">Semua</button>
+          <button class="filter-button" data-filter="hadir" style="padding: 10px 18px; border-radius: 12px; border: 1px solid #E0E3FF; background: white; color: var(--muted); font-weight: 600; font-size: 12px; white-space: nowrap;">Hadir</button>
+          <button class="filter-button" data-filter="izin" style="padding: 10px 18px; border-radius: 12px; border: 1px solid #E0E3FF; background: white; color: var(--muted); font-weight: 600; font-size: 12px; white-space: nowrap;">Izin</button>
+          <button class="filter-button" data-filter="sakit" style="padding: 10px 18px; border-radius: 12px; border: 1px solid #E0E3FF; background: white; color: var(--muted); font-weight: 600; font-size: 12px; white-space: nowrap;">Sakit</button>
+          <button class="filter-button" data-filter="bolos" style="padding: 10px 18px; border-radius: 12px; border: 1px solid #E0E3FF; background: white; color: var(--muted); font-weight: 600; font-size: 12px; white-space: nowrap;">Absen</button>
+        </div>
+      </section>
+
+      <section class="attendance-history">
+        <div class="history-item card" data-status="izin" style="display: flex; align-items: center; gap: 16px; padding: 16px; margin-bottom: 12px;">
+          <div class="history-date" style="width: 50px; height: 50px; border-radius: 14px; background: #FFEBD9; color: var(--alternate); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div class="date-number" style="font-size: 18px; font-weight: 700;">18</div>
+            <div class="date-month" style="font-size: 10px; font-weight: 700; text-transform: uppercase;">Sep</div>
+          </div>
+          <div class="history-details" style="flex: 1;">
+            <div class="history-title" style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Izin (2 Mapel)</div>
+            <div class="history-time" style="font-size: 11px; color: var(--muted);">07:30 - 10:45</div>
+          </div>
+          <div class="history-status" style="width: 32px; height: 32px; border-radius: 50%; background: #FFEBD9; color: var(--alternate); display: grid; place-items: center;">
+            <span class="material-icons-round" style="font-size: 18px;">event_note</span>
+          </div>
+        </div>
+
+        <div class="history-item card" data-status="sakit" style="display: flex; align-items: center; gap: 16px; padding: 16px; margin-bottom: 12px;">
+          <div class="history-date" style="width: 50px; height: 50px; border-radius: 14px; background: #D1F2EF; color: var(--tertiary); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div class="date-number" style="font-size: 18px; font-weight: 700;">11</div>
+            <div class="date-month" style="font-size: 10px; font-weight: 700; text-transform: uppercase;">Sep</div>
+          </div>
+          <div class="history-details" style="flex: 1;">
+            <div class="history-title" style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Sakit (2 Mapel)</div>
+            <div class="history-time" style="font-size: 11px; color: var(--muted);">11:00 - 14:30</div>
+          </div>
+          <div class="history-status" style="width: 32px; height: 32px; border-radius: 50%; background: #D1F2EF; color: var(--tertiary); display: grid; place-items: center;">
+            <span class="material-icons-round" style="font-size: 18px;">healing</span>
+          </div>
+        </div>
+
+        <div class="history-item card" data-status="hadir" style="display: flex; align-items: center; gap: 16px; padding: 16px; margin-bottom: 12px;">
+          <div class="history-date" style="width: 50px; height: 50px; border-radius: 14px; background: #E0E3FF; color: var(--primary); display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div class="date-number" style="font-size: 18px; font-weight: 700;">22</div>
+            <div class="date-month" style="font-size: 10px; font-weight: 700; text-transform: uppercase;">Agu</div>
+          </div>
+          <div class="history-details" style="flex: 1;">
+            <div class="history-title" style="font-size: 14px; font-weight: 700; margin-bottom: 4px;">Hadir Penuh</div>
+            <div class="history-time" style="font-size: 11px; color: var(--muted);">07:30 - 16:15</div>
+          </div>
+          <div class="history-status" style="width: 32px; height: 32px; border-radius: 50%; background: #E0E3FF; color: var(--primary); display: grid; place-items: center;">
+            <span class="material-icons-round" style="font-size: 18px;">check_circle</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="tabbar">
+      <a class="tab" href="index.html">
+        <span class="tab-icon"><span class="material-icons-round">home</span></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab" href="keuangan.html">
+        <span class="tab-icon"><span class="material-icons-round">account_balance_wallet</span></span>
+        <span class="tab-label">Keuangan</span>
+      </a>
+      <a class="tab" href="uang-saku.html">
+        <span class="tab-icon"><span class="material-icons-round">savings</span></span>
+        <span class="tab-label">Uang Saku</span>
+      </a>
+      <a class="tab" href="notifikasi.html">
+        <span class="tab-icon"><span class="material-icons-round">notifications</span></span>
+        <span class="tab-label">Notifikasi</span>
+      </a>
+      <a class="tab active" href="akun.html">
+        <span class="tab-icon"><span class="material-icons-round">person</span></span>
+        <span class="tab-label">Akun</span>
+      </a>
+    </nav>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const filterButtons = document.querySelectorAll('.filter-button');
+          const historyItems = document.querySelectorAll('.history-item');
+          
+          filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              // Remove active class from all buttons
+              filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.background = 'white';
+                btn.style.color = 'var(--muted)';
+                btn.style.border = '1px solid #E0E3FF';
+              });
+              
+              // Add active class to clicked button
+              this.classList.add('active');
+              this.style.background = 'var(--primary)';
+              this.style.color = 'white';
+              this.style.border = 'none';
+              
+              const filter = this.getAttribute('data-filter');
+              
+              // Show/hide history items based on filter
+              historyItems.forEach(item => {
+                if (filter === 'semua' || item.getAttribute('data-status') === filter) {
+                  item.style.display = 'flex';
+                } else {
+                  item.style.display = 'none';
+                }
+              });
+            });
+          });
+        });
+      </script>
+    </body>
+</html>
