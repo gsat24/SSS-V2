@@ -514,6 +514,8 @@ input {
 }
 .day.inactive{ opacity: 0.4; }
 .day.selected{ outline: 2px solid var(--primary); }
+.day.weekend,
+.day.holiday{ color: #B91C1C; }
 .attendance-dots{
   position: absolute;
   left: 8px;

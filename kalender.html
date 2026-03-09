@@ -97,16 +97,16 @@
     <script>
       const events = {
         '2026-03': [
-          { date: '2026-03-20', title: 'Libur Nasional: Hari Raya Nyepi', color: '#D1F2EF', text: 'var(--tertiary)' },
-          { date: '2026-03-27', title: 'Ujian Tengah Semester', color: '#E0E3FF', text: 'var(--primary)' },
+          { date: '2026-03-20', title: 'Libur Nasional: Hari Raya Nyepi', type: 'holiday', color: '#FEE2E2', text: '#B91C1C' },
+          { date: '2026-03-27', title: 'Ujian Tengah Semester', type: 'school_event', color: '#E0E3FF', text: 'var(--primary)' },
         ],
         '2026-04': [
-          { date: '2026-04-10', title: 'Libur Nasional: Jum’at Agung', color: '#D1F2EF', text: 'var(--tertiary)' },
-          { date: '2026-04-22', title: 'Kegiatan Prakarya: Pameran Karya', color: '#FFEBD9', text: 'var(--alternate)' },
+          { date: '2026-04-10', title: 'Libur Nasional: Jum’at Agung', type: 'holiday', color: '#FEE2E2', text: '#B91C1C' },
+          { date: '2026-04-22', title: 'Kegiatan Prakarya: Pameran Karya', type: 'school_event', color: '#FFEBD9', text: 'var(--alternate)' },
         ],
         '2026-05': [
-          { date: '2026-05-01', title: 'Libur Nasional: Hari Buruh', color: '#D1F2EF', text: 'var(--tertiary)' },
-          { date: '2026-05-15', title: 'Wisuda Kelas 12', color: '#E0E3FF', text: 'var(--primary)' },
+          { date: '2026-05-01', title: 'Libur Nasional: Hari Buruh', type: 'holiday', color: '#FEE2E2', text: '#B91C1C' },
+          { date: '2026-05-15', title: 'Wisuda Kelas 12', type: 'school_event', color: '#E0E3FF', text: 'var(--primary)' },
         ],
       };
 
@@ -176,6 +176,11 @@
           cell.className = 'day';
           cell.textContent = d;
           const todaysEvents = eventDates.get(d) || [];
+          const dow = new Date(year, month - 1, d).getDay();
+          if(dow === 0){ cell.classList.add('weekend'); }
+          if(todaysEvents.some(ev => ev.type === 'holiday' || ev.type === 'joint_leave')){
+            cell.classList.add('holiday');
+          }
           if(todaysEvents.length){
             const dots = document.createElement('div');
             dots.style.display = 'flex';
@@ -202,7 +207,12 @@
         }
       }
 
-      monthSelect.addEventListener('change', renderEvents);
+      monthSelect.addEventListener('change', function(){
+        renderEvents();
+        if(calendarSection.style.display !== 'none'){
+          renderCalendar();
+        }
+      });
       renderEvents();
 
       showCalendarBtn.addEventListener('click', function(){
