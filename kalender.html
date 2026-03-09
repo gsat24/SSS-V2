@@ -42,6 +42,7 @@
             <option value="2026-05">Mei 2026</option>
           </select>
         </div>
+        <button id="showCalendarBtn" class="btn primary" style="margin-top: 8px;">Lihat Kalender</button>
       </section>
 
       <section class="card" style="padding: 16px;">
@@ -49,6 +50,24 @@
           <h2>Agenda</h2>
         </div>
         <div id="eventList" style="display: flex; flex-direction: column; gap: 8px;"></div>
+      </section>
+
+      <section id="calendarSection" class="card" style="padding: 16px; display: none;">
+        <div class="section-heading" style="margin: 0 0 12px;">
+          <h2>Kalender</h2>
+        </div>
+        <div class="calendar">
+          <div class="calendar-weekdays">
+            <div class="weekday">Min</div>
+            <div class="weekday">Sen</div>
+            <div class="weekday">Sel</div>
+            <div class="weekday">Rab</div>
+            <div class="weekday">Kam</div>
+            <div class="weekday">Jum</div>
+            <div class="weekday">Sab</div>
+          </div>
+          <div id="calendarDays" class="calendar-days"></div>
+        </div>
       </section>
     </main>
 
@@ -93,6 +112,9 @@
 
       const monthSelect = document.getElementById('monthSelect');
       const eventList = document.getElementById('eventList');
+      const showCalendarBtn = document.getElementById('showCalendarBtn');
+      const calendarSection = document.getElementById('calendarSection');
+      const calendarDaysEl = document.getElementById('calendarDays');
 
       function renderEvents(){
         const key = monthSelect.value;
@@ -117,8 +139,76 @@
         });
       }
 
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function keyFor(y,m){ return `${y}-${pad(m)}`; }
+
+      function renderCalendar(){
+        const [yearStr, monthStr] = monthSelect.value.split('-');
+        const year = parseInt(yearStr, 10);
+        const month = parseInt(monthStr, 10);
+        const firstDay = new Date(year, month - 1, 1).getDay();
+        const daysInMonth = new Date(year, month, 0).getDate();
+        const prevMonthDays = new Date(year, month - 1, 0).getDate();
+        const totalCells = Math.ceil((firstDay + daysInMonth) / 7) * 7;
+        const trailing = totalCells - firstDay - daysInMonth;
+
+        calendarDaysEl.innerHTML = '';
+
+        for(let i=firstDay; i>0; i--){
+          const num = prevMonthDays - i + 1;
+          const cell = document.createElement('div');
+          cell.className = 'day inactive';
+          cell.textContent = num;
+          calendarDaysEl.appendChild(cell);
+        }
+
+        const monthKey = monthSelect.value;
+        const monthEvents = events[monthKey] || [];
+        const eventDates = new Map();
+        monthEvents.forEach(ev => {
+          const d = new Date(ev.date).getDate();
+          if(!eventDates.has(d)) eventDates.set(d, []);
+          eventDates.get(d).push(ev);
+        });
+
+        for(let d=1; d<=daysInMonth; d++){
+          const cell = document.createElement('div');
+          cell.className = 'day';
+          cell.textContent = d;
+          const todaysEvents = eventDates.get(d) || [];
+          if(todaysEvents.length){
+            const dots = document.createElement('div');
+            dots.style.display = 'flex';
+            dots.style.gap = '4px';
+            dots.style.marginTop = '6px';
+            todaysEvents.slice(0,3).forEach(ev => {
+              const dot = document.createElement('span');
+              dot.style.width = '6px';
+              dot.style.height = '6px';
+              dot.style.borderRadius = '50%';
+              dot.style.background = ev.color;
+              dots.appendChild(dot);
+            });
+            cell.appendChild(dots);
+          }
+          calendarDaysEl.appendChild(cell);
+        }
+
+        for(let i=1; i<=trailing; i++){
+          const cell = document.createElement('div');
+          cell.className = 'day inactive';
+          cell.textContent = i;
+          calendarDaysEl.appendChild(cell);
+        }
+      }
+
       monthSelect.addEventListener('change', renderEvents);
       renderEvents();
+
+      showCalendarBtn.addEventListener('click', function(){
+        calendarSection.style.display = 'block';
+        renderCalendar();
+      });
     </script>
   </body>
 </html>
