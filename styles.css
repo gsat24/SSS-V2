@@ -1,7 +1,8 @@
 :root{
-  /* New Modern Purple Palette based on user image */
-  --primary: #4B39EF;
-  --primary-dark: #3929cf;
+  /* Green Palette aligned to logo */
+  --primary: #14532d;        /* deep green */
+  --primary-dark: #0f3b22;   /* darker green */
+  --primary-accent: #2fa66a; /* gradient partner */
   --secondary: #FF5963;
   --tertiary: #39D2C0;
   --alternate: #EE8B60;
@@ -13,7 +14,7 @@
   --muted: #57636C;
   
   --white: #FFFFFF;
-  --purple-light: #E0E3FF;
+  --purple-light: #D1FADF;   /* soft green highlight */
   
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
   --shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -42,7 +43,7 @@ body{
 
 /* Header with Curved Background */
 .app-header{ 
-  background: linear-gradient(135deg, var(--primary), #6f61ef);
+  background: linear-gradient(135deg, var(--primary), var(--primary-accent));
   padding: 40px 20px 80px;
   color: white;
   border-bottom-left-radius: var(--radius-lg);
