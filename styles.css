@@ -15,6 +15,7 @@
   
   --white: #FFFFFF;
   --purple-light: #D1FADF;   /* soft green highlight */
+  --border: #e5e7eb;
   
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
   --shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -27,11 +28,12 @@
 
 [data-theme="dark"]{
   --bg: #0f172a;
-  --surface: #0b1220;
-  --surface-soft: #0d1424;
+  --surface: #0b1325;
+  --surface-soft: #111a2e;
   --text: #e5e7eb;
-  --muted: #9aa6b2;
+  --muted: #b0bac5;
   --purple-light: #14302b;
+  --border: #1f2a37;
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.35);
   --shadow: 0 4px 12px rgba(0,0,0,0.45);
   --shadow-lg: 0 10px 25px rgba(0,0,0,0.55);
@@ -129,7 +131,7 @@ body{
   box-shadow: var(--shadow);
   padding: 20px;
   margin-bottom: 20px;
-  border: none;
+  border: 1px solid var(--border);
 }
 
 /* Feature Grid Redesign */
@@ -505,7 +507,8 @@ input {
 
 /* List Items (Notifications, Payments, etc) */
 .notification-card, .payment-card, .transaction-card, .violation-item, .achievement-item, .history-item {
-  background: white;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
   margin-bottom: 12px;
